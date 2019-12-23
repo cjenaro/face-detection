@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Face Detector</title>
+</head>
+<body>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: sans-serif;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .wrap {
+      position: relative;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrap > * {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .face {
+      position: absolute;
+    }
+  </style>
+
+  <div class="title">  
+    <h1>Face Detection and Censorship</h1>
+    <p>For this webpage to work you need to open it in chrome and enable Experimental Web Platform features.</p>
+    <p>Copy and paste <code>chrome://flags/</code> on your url &gt; Search for <code>Experimental Web Platform features</code> &gt; Enable and restart the browser.</p>
+  </div>
+
+  <div class="wrap">
+    <video class="webcam"></video>
+    <canvas class="video"></canvas>
+    <canvas class="face"></canvas>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+</html>

@@ -45,7 +45,7 @@ if (!window.FaceDetector) {
     const width = boundingBox.width * SCALE
     const height = boundingBox.height * SCALE
 
-    faceCtx.drawImg(
+    faceCtx.drawImage(
       webcam,
       boundingBox.x,
       boundingBox.y,
@@ -57,7 +57,7 @@ if (!window.FaceDetector) {
       SIZE
     )
 
-    faceCtx.drawImg(
+    faceCtx.drawImage(
       face,
       boundingBox.x,
       boundingBox.y,

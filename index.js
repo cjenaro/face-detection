@@ -1,3 +1,4 @@
+const wrapper = document.querySelector('.wrap')
 const webcam = document.querySelector('.webcam')
 const video = document.querySelector('.video')
 const face = document.querySelector('.face')
@@ -7,8 +8,8 @@ const ctx = video.getContext('2d')
 const faceCtx = face.getContext('2d')
 
 if (!window.FaceDetector) {
-  document.body.innerHTML = `
-    <h1>Your browser/OS does not support Face Detector</h1>
+  wrapper.innerHTML = `
+    <h1>Your browser does not support Face Detector</h1>
   `
 } else {
   const faceDetector = new window.FaceDetector()
@@ -28,7 +29,11 @@ if (!window.FaceDetector) {
   }
 
   async function detect() {
-    const faces = await faceDetector.detect(webcam)
+    const faces = await faceDetector.detect(webcam).catch(() => {
+      wrapper.innerHTML = `
+        <h1>Your OS does not support Face Detector</h1>
+      `
+    })
     faces.forEach(censor)
     requestAnimationFrame(detect)
   }
